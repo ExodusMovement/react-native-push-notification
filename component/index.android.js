@@ -116,6 +116,10 @@ NotificationsComponent.prototype.clearAllNotifications = function() {
 	RNPushNotification.clearAllNotifications()
 }
 
+NotificationsComponent.prototype.deleteChannel = function(channelId) {
+	RNPushNotification.deleteChannel(channelId)
+}
+
 module.exports = {
 	state: false,
 	component: new NotificationsComponent()

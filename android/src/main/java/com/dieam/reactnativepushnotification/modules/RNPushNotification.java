@@ -186,6 +186,11 @@ public class RNPushNotification extends ReactContextBaseJavaModule implements Ac
         ApplicationBadgeHelper.INSTANCE.setApplicationIconBadgeNumber(getReactApplicationContext(), number);
     }
 
+    @ReactMethod
+    public void deleteChannel(String channelId) {
+        mRNPushNotificationHelper.deleteChannel(channelId);
+    }
+
     // removed @Override temporarily just to get it working on different versions of RN
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         onActivityResult(requestCode, resultCode, data);
