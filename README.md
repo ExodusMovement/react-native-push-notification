@@ -5,13 +5,13 @@
 React Native Local and Remote Notifications for iOS and Android
 
 ## Supported React Native Versions
-| Component Version     | RN Versions    | README     |
-|-----------------------|---------------|------------|
-| **1.0.7**          | **<= 0.27**   | [Open](https://github.com/zo0r/react-native-push-notification/blob/f42723817f1687e0da23e6753eb8a9f0385b6ac5/README.md)   |
-| **1.0.8**          | **0.28**   | [Open](https://github.com/zo0r/react-native-push-notification/blob/2eafd1961273ca6a82ad4dd6514fbf1d1a829089/README.md)   |
-| **2.0.1**          | **0.29**   | [Open](https://github.com/zo0r/react-native-push-notification/blob/c7ab7cd84ea19e42047379aefaf568bb16a81936/README.md)   |
-| **2.0.2**          | **0.30, 0.31, 0.32**   | [Open](https://github.com/zo0r/react-native-push-notification/blob/a0f7d44e904ba0b92933518e5bf6b444f1c90abb/README.md)   |
-| **>= 2.1.0**          | **>= 0.33**   | [Open](https://github.com/zo0r/react-native-push-notification/blob/a359e5c00954aa324136eaa9808333d6ca246171/README.md)   |
+| Component Version | RN Versions          | README                                                                                                                 |
+| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **1.0.7**         | **<= 0.27**          | [Open](https://github.com/zo0r/react-native-push-notification/blob/f42723817f1687e0da23e6753eb8a9f0385b6ac5/README.md) |
+| **1.0.8**         | **0.28**             | [Open](https://github.com/zo0r/react-native-push-notification/blob/2eafd1961273ca6a82ad4dd6514fbf1d1a829089/README.md) |
+| **2.0.1**         | **0.29**             | [Open](https://github.com/zo0r/react-native-push-notification/blob/c7ab7cd84ea19e42047379aefaf568bb16a81936/README.md) |
+| **2.0.2**         | **0.30, 0.31, 0.32** | [Open](https://github.com/zo0r/react-native-push-notification/blob/a0f7d44e904ba0b92933518e5bf6b444f1c90abb/README.md) |
+| **>= 2.1.0**      | **>= 0.33**          | [Open](https://github.com/zo0r/react-native-push-notification/blob/a359e5c00954aa324136eaa9808333d6ca246171/README.md) |
 
 ## Changelog
 Changelog is available from version 3.1.1 here: [Changelog](https://github.com/zo0r/react-native-push-notification/blob/master/CHANGELOG.md)
@@ -71,11 +71,24 @@ In your `AndroidManifest.xml`
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application ....>
-        <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_name"
-                android:value="YOUR NOTIFICATION CHANNEL NAME"/>
-        <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_description"
-                    android:value="YOUR NOTIFICATION CHANNEL DESCRIPTION"/>
+        <!-- Android 8 and above -->
+        <!-- channel settings are statically defined here and PERMANENT, however you can have multiple channels -->
+        <meta-data  android:name="x.y.z.channel1.description_string"
+                android:value="channel description user sees in Settings"/>
+        <meta-data  android:name="x.y.z.channel1.sound_string"
+                android:value="default"/> <!-- or some-custom-sound.wav from your assets -->
+        <meta-data  android:name="x.y.z.channel1.importance_string"
+                android:value="high"/>
+        <meta-data  android:name="x.y.z.channel1.lights_boolean"
+                android:value="true"/>
+        <meta-data  android:name="x.y.z.channel1.vibration_boolean"
+                android:value="true"/>
+        <meta-data  android:name="x.y.z.channel1.silent_boolean"
+                android:value="false"/> <!-- or some-custom-sound.wav from your assets -->
+        <meta-data  android:name="x.y.z.channel1.badge_boolean"
+                android:value="true"/>
         <!-- Change the resource name to your App's accent color - or any other color you want -->
+        <!-- Android 7.1 and below -->
         <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color"
                     android:resource="@android:color/white"/>
 

@@ -331,4 +331,9 @@ Notifications.clearAllNotifications = function() {
 	return this.callNative('clearAllNotifications', arguments)
 }
 
+Notifications.deleteChannel = function() {
+	// Only available for Android
+	return this.callNative('deleteChannel', arguments)
+}
+
 module.exports = Notifications;
